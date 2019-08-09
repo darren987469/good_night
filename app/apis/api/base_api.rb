@@ -28,5 +28,7 @@ module API
     end
 
     mount API::V1::BaseAPI => '/v1'
+
+    add_swagger_documentation(mount_path: '/swagger_doc')
   end
 end
