@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2019_08_09_142005) do
     t.datetime "updated_at", null: false
     t.index ["followed_user_id"], name: "index_followings_on_followed_user_id"
     t.index ["user_id", "followed_user_id"], name: "index_followings_on_user_id_and_followed_user_id", unique: true
-    t.index ["user_id"], name: "index_followings_on_user_id"
   end
 
   create_table "sleeps", force: :cascade do |t|
