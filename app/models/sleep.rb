@@ -6,12 +6,15 @@ class Sleep < ApplicationRecord
   private
 
   def overlap
-    return unless slept_at && waked_at && overlap?
+    return unless overlap_record_exists?
     errors.add(:base, 'The sleep is overlapped with other one.')
   end
 
-  def overlap?
-    Sleep.where(user_id: user_id).
-      where('slept_at < ? AND ? < waked_at', waked_at, slept_at).exists?
+  def overlap_record_exists?
+    return unless user_id && slept_at && waked_at
+    record = Sleep.where(user_id: user_id).
+      where('slept_at <= ? AND ? <= waked_at', waked_at, slept_at)
+    record = record.where.not(id: id) if persisted?
+    record.exists?
   end
 end
