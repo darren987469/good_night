@@ -10,6 +10,8 @@ There are some restful APIS to achieve the following:
 
 You can see the PRs in [here](https://github.com/darren987469/good_night/pulls?q=is%3Apr+is%3Aclosed)
 
+The project structure, some code are based on my previous project [Todos](https://github.com/darren987469/todos). You can know more about my coding style, habitat there.
+
 ## API document
 
 * Development: http://localhost:3000/swagger
