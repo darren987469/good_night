@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_09_113925) do
+ActiveRecord::Schema.define(version: 2019_08_09_142005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2019_08_09_113925) do
     t.index ["followed_user_id"], name: "index_followings_on_followed_user_id"
     t.index ["user_id", "followed_user_id"], name: "index_followings_on_user_id_and_followed_user_id", unique: true
     t.index ["user_id"], name: "index_followings_on_user_id"
+  end
+
+  create_table "sleeps", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "slept_at"
+    t.datetime "waked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sleeps_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
