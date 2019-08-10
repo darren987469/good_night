@@ -3,7 +3,7 @@ module API
     format :json
 
     helpers Pundit
-    helpers Helper::Base
+    helpers Helper::Base, Helper::Pagination
 
     rescue_from Grape::Exceptions::ValidationErrors do |error|
       error!(error.message, 400)
